@@ -134,6 +134,10 @@ See documentation [here.](./API.md)
 python manage.py test
 ```
 
+## Assumptions:
+
+### [Assumptions](./Assumption.md)
+
 ### Further improvements
 Along with the linkedin, tracxn data can be scraped, stored and retrieved in similar fashion. 
 
