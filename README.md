@@ -1,8 +1,8 @@
 # web-scraper
 
-Fetch the LinkedIn profiles by using web scraping.
-
-The project contains REST API's which can be used to scrap linkedin profiles, retrieve the list of scraped profiles or retrieve the detail of specific employee profile.
+This project contains the implementation to scrap the linkedin profiles,
+store them to the database and retrieve the scraped data from the
+the database. The REST APIs are provided to retrieve the list of profiles or the details of any specific profile.
 
 # Technology Stack
 We have used,
@@ -28,7 +28,7 @@ We have used,
 │   ├── __init__.py
 │   ├── migrations: database migrations
 │   ├── models.py: database models for linkedin scraper app
-│   ├── serializers.py: serializers for above models
+│   ├── serializers.py: serializers for the models
 │   ├── tests.py: test cases for view
 │   ├── urls.py: url endpoints of linkedin scraper app
 │   ├── utilities.py: Utility functions used in views
@@ -45,7 +45,7 @@ We have used,
 │   ├── __init__.py
 │   ├── migrations: database migrations
 │   ├── models.py: database models for tracxn scraper app
-│   ├── serializers.py: serializers for above models
+│   ├── serializers.py: serializers for the models
 │   ├── tests.py: test cases for view
 │   ├── urls.py: urls for tracxn scraper app
 │   └── views.py: These views are called by API endpoints
@@ -77,13 +77,11 @@ pip install -r requirements/dev.txt
 Create the .env file to the root directory of the project.
 You can refer this example file-
  
-
 ### [.env.example](./.env.example) 
 
 
 Create the config.ini file to the root directory of the project.
 You can refer this example file- 
-
 
 ### [config.ini.example](./config.ini.example)
 
@@ -103,8 +101,8 @@ Create administrator/super user:
 python manage.py createsuperuser 
 
 
-Note: It will prompt to enter username, email and password one by one. Please remember the username and password, it will be
-used to login admin area or to hit an API to scrap/refresh the linkedin profiles.
+Note: It will prompt to enter username, email and password one by one. Please remember the username and password,
+it will be used to login admin area or to hit an API to scrap/refresh the linkedin profiles.
 ```
 
 
