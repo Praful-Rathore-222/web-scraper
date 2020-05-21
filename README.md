@@ -1,9 +1,8 @@
 # web-scraper
 
 Fetch the LinkedIn profiles by using web scraping.
-The project contains REST API's which can be used to scrap linkedin profiles, retrieve the list of scraped profiles 
-or retrieve the detail of specific employee profile.
 
+The project contains REST API's which can be used to scrap linkedin profiles, retrieve the list of scraped profiles or retrieve the detail of specific employee profile.
 
 # Technology Stack
 We have used,
@@ -66,6 +65,7 @@ First, clone the repository to your local machine:
 
 ```
 git clone https://github.com/fulltostack/web-scraper
+
 cd web-scraper
 ```
 
@@ -74,11 +74,18 @@ Install the requirements:
 ```
 pip install -r requirements/dev.txt
 ```
-Create the .env file to the root directory of the project. <br />
-You can refer this example file- [.env.example](./.env.example) 
-<br /> <br />
-Create the config.ini file to the root directory of the project. <br />
-You can refer this example file- [config.ini.example](./config.ini.example)
+
+```
+Create the .env file to the root directory of the project.
+You can refer this example file- 
+
+[.env.example](./.env.example) 
+
+Create the config.ini file to the root directory of the project.
+You can refer this example file- 
+
+[config.ini.example](./config.ini.example)
+```
 
 Apply the migrations:
 
@@ -94,9 +101,12 @@ python manage.py loaddata companies
 Create administrator/super user:
 ```
 python manage.py createsuperuser 
+
+
+Note: It will prompt to enter username, email and password one by one. Please remember the username and password, it will be
+used to login admin area or to hit an API to scrap/refresh the linkedin profiles.
 ```
-it will prompt to enter username, email and password one by one. Please remember the username and password, it will be
-used to login admin area or to hit an API to scrap/refresh the linkedin profiles. <br />
+
 
 Finally, run the development server:
 
