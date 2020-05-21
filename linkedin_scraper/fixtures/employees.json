@@ -1,0 +1,23 @@
+[{
+    "model": "linkedin_scraper.Employee",
+    "pk": 1,
+    "fields": {
+      "company": "Mambu",
+      "name": "gargi",
+      "email": "gargi@mambu.com",
+      "designation": "IT admin",
+      "employed_date": "2017-11-26"
+    }
+  },
+  {
+    "model": "linkedin_scraper.Employee",
+    "pk": 2,
+    "fields": {
+      "company": "Mambu",
+      "name": "john",
+      "email": "john@mambu.com",
+      "designation": "developer",
+      "employed_date": "2017-11-26"
+    }
+  }
+]

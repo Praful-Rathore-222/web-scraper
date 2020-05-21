@@ -1,0 +1,257 @@
+[{
+    "model": "tracxn_scraper.Investor",
+    "pk": 1,
+     "fields": {
+       "name": "default investor",
+       "is_angel": false
+     }
+},
+  {
+    "model": "tracxn_scraper.Investor",
+    "pk": 2,
+     "fields": {
+       "name": "default investor2",
+       "is_angel": false
+     }
+},
+  {
+    "model": "tracxn_scraper.Investor",
+    "pk": 3,
+     "fields": {
+       "name": "default investor3",
+       "is_angel": false
+     }
+},
+  {
+    "model": "tracxn_scraper.Investor",
+    "pk": 4,
+     "fields": {
+       "name": "default investor4",
+       "is_angel": false
+     }
+},
+  {
+    "model": "tracxn_scraper.Investor",
+    "pk": 5,
+     "fields": {
+       "name": "default investor5",
+       "is_angel": true
+     }
+},
+  {
+    "model": "tracxn_scraper.Category",
+    "pk": 1,
+     "fields": {
+       "name": "default category"
+     }
+},
+  {
+    "model": "tracxn_scraper.Category",
+    "pk": 2,
+     "fields": {
+       "name": "CRM"
+     }
+},
+  {
+    "model": "tracxn_scraper.Category",
+    "pk": 3,
+     "fields": {
+       "name": "fintech"
+     }
+},
+  {
+    "model": "tracxn_scraper.Category",
+    "pk": 4,
+     "fields": {
+       "name": "blockchain"
+     }
+},
+  {
+    "model": "tracxn_scraper.Category",
+    "pk": 5,
+     "fields": {
+       "name": "default category5"
+     }
+},
+  {
+    "model": "tracxn_scraper.Company",
+    "pk": 1,
+    "fields": {
+      "name": "Mambu",
+      "short_description": "company1",
+      "description": "company1",
+      "founded_year": 2020,
+      "location": "mumbai",
+      "total_funding": 112,
+      "stage": "unfunded",
+      "investor": [1,3],
+      "category": [2]
+    }
+  },
+  {
+    "model": "tracxn_scraper.Company",
+    "pk": 2,
+    "fields": {
+      "name": "company2",
+      "short_description": "company2",
+      "description": "company2",
+      "founded_year": 2020,
+      "location": "pune",
+      "total_funding": 50,
+      "stage": "unfunded",
+      "investor": [2,3],
+      "category": [1]
+    }
+  },
+  {
+    "model": "tracxn_scraper.Company",
+    "pk": 3,
+    "fields": {
+      "name": "Company3",
+      "short_description": "Company3",
+      "description": "Company3",
+      "founded_year": 2020,
+      "location": "bangalore",
+      "total_funding": 112,
+      "stage": "unfunded",
+      "investor": [4,3],
+      "category": [1]
+    }
+  },
+  {
+    "model": "tracxn_scraper.Company",
+    "pk": 4,
+    "fields": {
+      "name": "Company4",
+      "short_description": "Company4",
+      "description": "Company4",
+      "founded_year": 2020,
+      "location": "bangalore",
+      "total_funding": 112,
+      "stage": "unfunded",
+      "investor": [4,5],
+      "category": [2]
+    }
+  },
+  {
+    "model": "tracxn_scraper.Company",
+    "pk": 5,
+    "fields": {
+      "name": "Company5",
+      "short_description": "Company5",
+      "description": "Company5",
+      "founded_year": 2020,
+      "location": "pune",
+      "total_funding": 10,
+      "stage": "unfunded",
+      "investor": [4,5],
+      "category": [3]
+    }
+  },
+  {
+    "model": "tracxn_scraper.Company",
+    "pk": 6,
+    "fields": {
+      "name": "Company6",
+      "short_description": "Company6",
+      "description": "Company6",
+      "founded_year": 2010,
+      "location": "hyderabad",
+      "total_funding": 100,
+      "stage": "unfunded",
+      "investor": [1,2],
+      "category": [4]
+    }
+  },
+  {
+    "model": "tracxn_scraper.Company",
+    "pk": 7,
+    "fields": {
+      "name": "Company7",
+      "short_description": "Company7",
+      "description": "Company7",
+      "founded_year": 2000,
+      "location": "bangalore",
+      "total_funding": 101,
+      "stage": "unfunded",
+      "investor": [4,5],
+      "category": [4]
+    }
+  },
+  {
+    "model": "tracxn_scraper.Company",
+    "pk": 8,
+    "fields": {
+      "name": "Company8",
+      "short_description": "Company8",
+      "description": "Company8",
+      "founded_year": 2007,
+      "location": "bangalore",
+      "total_funding": 107,
+      "stage": "funded",
+      "investor": [1,3],
+      "category": [4]
+    }
+  },
+  {
+    "model": "tracxn_scraper.Company",
+    "pk": 9,
+    "fields": {
+      "name": "Company9",
+      "short_description": "Company9",
+      "description": "Company9",
+      "founded_year": 2009,
+      "location": "indore",
+      "total_funding": 109,
+      "stage": "funded",
+      "investor": [1,2],
+      "category": [4]
+    }
+  },
+  {
+    "model": "tracxn_scraper.Company",
+    "pk": 10,
+    "fields": {
+      "name": "Company10",
+      "short_description": "Company10",
+      "description": "Company10",
+      "founded_year": 2010,
+      "location": "delhi",
+      "total_funding": 110,
+      "stage": "funded",
+      "investor": [4,3,5],
+      "category": [4]
+    }
+  },
+  {
+    "model": "tracxn_scraper.Company",
+    "pk": 11,
+    "fields": {
+      "name": "Company11",
+      "short_description": "Company11",
+      "description": "Company11",
+      "founded_year": 2011,
+      "location": "pune",
+      "total_funding": 111,
+      "stage": "funded",
+      "investor": [4,3],
+      "category": [4]
+    }
+  },
+  {
+    "model": "tracxn_scraper.NewsLink",
+    "pk": 1,
+    "fields": {
+      "title": "newslink1",
+      "company": 1
+    }
+  },
+  {
+    "model": "tracxn_scraper.NewsLink",
+    "pk": 2,
+    "fields": {
+      "title": "newslink2",
+      "company": 2
+    }
+  }
+]
