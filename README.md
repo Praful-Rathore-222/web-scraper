@@ -65,8 +65,8 @@ We have used,
 First, clone the repository to your local machine:
 
 ```
-git clone <>
-cd <>
+git clone https://github.com/fulltostack/web-scraper
+cd web-scraper
 ```
 
 Install the requirements:
