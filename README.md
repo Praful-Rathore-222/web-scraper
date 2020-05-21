@@ -75,17 +75,19 @@ Install the requirements:
 pip install -r requirements/dev.txt
 ```
 
-```
-Create the .env file to the root directory of the project.
-You can refer this example file- 
 
-[.env.example](./.env.example) 
+Create the .env file to the root directory of the project.
+You can refer this example file-
+ 
+
+### [.env.example](./.env.example) 
+
 
 Create the config.ini file to the root directory of the project.
 You can refer this example file- 
 
-[config.ini.example](./config.ini.example)
-```
+
+### [config.ini.example](./config.ini.example)
 
 Apply the migrations:
 
