@@ -60,7 +60,7 @@ We have used,
 ```
 
 # Running Locally
-**Run the project locally without using docker:**<br>
+
 First, clone the repository to your local machine:
 
 ```
