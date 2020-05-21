@@ -12,8 +12,6 @@ We have used,
 3. sqlite3 Database
 4. Google Chrome v.83.0.4103.61    
 5. Google Chrome driver v.83.0.4103.61
-4. Docker
-5. docker-compose
 ```
 
 # Project Structure:
