@@ -34,25 +34,14 @@ def scroll_to_bottom(driver):
         print(str(e))
         raise ValueError('Took too long to scroll page.')
 
-def clean_name(name):
-    """Name is extracted from the title thats why it has some unwanted substrings from title in linked page.
-        To remove those we use below code"""
-    substring_list = [
-        '(', '1', '2', '3', '4', '5', '6', '7', '8', '9', ')']
-    for substring in substring_list:
-        name = name.replace(substring, '')
-        name = name.strip()
-    return name
-
 def scrap_profiles(driver):
     """
     select the profile from the webpage and scrap it.
     """
     try:
         sel = Selector(text=driver.page_source)
-        name = sel.xpath(
-            '//title/text()').extract_first().split(' | ')[0]
-        name = clean_name(name)
+        root = driver.find_element_by_class_name("pv-top-card")
+        name = root.find_elements_by_xpath("//section/div/div/div/*/li")[0].text.strip()
         job_title = sel.xpath('//h2/text()').getall()[1]
         ln_url = driver.current_url
 
