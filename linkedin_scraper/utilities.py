@@ -9,7 +9,7 @@ def login(driver, username, password):
     """
     Utility function to login to linkedin.
     """
-    driver.get('https://www.linkedin.com/login?fromSignIn=true&trk=guest_homepage-basic_nav-header-signin')
+    driver.get('https://www.linkedin.com/login')
     email_input = driver.find_element_by_id('username')
     email_input.send_keys(username)
     password_input = driver.find_element_by_id('password')
