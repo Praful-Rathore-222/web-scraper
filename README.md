@@ -155,8 +155,22 @@ python manage.py test
 ### SAMPLE USAGE
 
 ```
-cd scrape_scripts
-python linkedin_profile.py
+from scrape_scripts.linkedin_profile import Person, login
+from selenium import webdriver
+
+driver = webdriver.Chrome()
+login(driver, email, password)
+
+Person("https://www.linkedin.com/in/andre-iguodala-65b48ab5", driver=driver)
+
+output:
+
+Andre Iguodala 
+Professional Basketball Player (NBA), Venture Partner at Catalyst Fund, Jumia Board Member, Investor, Bestselling Author 
+San Francisco Bay Area 
+https://www.linkedin.com/in/andre-iguodala-65b48ab5
+
+
 ```
 
 It's scrape the person name, location and linkedin profile url.

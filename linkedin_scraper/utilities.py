@@ -53,34 +53,16 @@ def scrap_profiles(driver):
         time.sleep(5)
     except:
         print('failed to scrape profile')
-
-def get_profile(profile, driver):
-    """
-    Load the profile link and scrap it
-    """
-    try:
-        driver.get(profile)
-        scrap_profiles(driver)
-    except TimeoutException as e:
-        print(str(e))
-        raise ValueError('Took too long to scroll page.')
-
+        pass
 
 def get_profiles_link_and_scrap_profiles(driver):
     """
     get the list of all profiles and scrap each profile one by one.
     """
-    unique_profiles_list = []
-    profiles = driver.find_elements_by_xpath('//a[1]')
-    profiles = [profile.get_attribute(
-        'href') for profile in profiles if 'https://www.linkedin.com/in/' in profile.get_attribute('href')]
-    # # avoid first two links as its loggedin users links
-    profiles = profiles[2:]
-    # # remove duplicate links if any
-    list_set = set(profiles)
-    # # convert the set to the list
-    unique_profiles_list = (list(list_set))
-    if len(unique_profiles_list):
-        for profile in unique_profiles_list:
-            get_profile(profile, driver)
+    profiles = driver.find_elements_by_xpath('//a[@data-control-name="people_profile_card_image_link"]')
 
+    profiles = [profile.get_attribute('href') for profile in profiles if 'https://www.linkedin.com/in/' in profile.get_attribute('href')]
+
+    for profile in profiles:
+            driver.get(profile)
+            scrap_profiles(driver)
