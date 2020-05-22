@@ -85,7 +85,25 @@ You can refer this example file-
 
 ### [config.ini.example](./config.ini.example)
 
-Apply the migrations:
+####Install Redis on the system:<br />
+- Install Redis:
+```
+sudo apt update -y
+sudo apt install redis-server -y
+```
+- Test redis installation:
+```
+redis-cli ping
+```
+You should see:
+```
+$ redis-cli ping
+pong
+```
+also you can refer [this link](https://www.codingforentrepreneurs.com/blog/hello-linux-install-redis)
+for redis installation. <br />
+
+Apply the database migrations:
 
 ```
 python manage.py migrate
@@ -131,9 +149,8 @@ python manage.py test
 ```
 
 ## Assumptions:
-
 ### [Assumptions](./Assumption.md)
 
-### Further improvements
+## Further improvements
 Along with the linkedin, tracxn data can be scraped, stored and retrieved in similar fashion. 
 
