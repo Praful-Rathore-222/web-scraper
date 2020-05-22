@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'linkedin_scraper.apps.LinkedinScraperConfig',
     'tracxn_scraper.apps.TracxnScraperConfig',
+    'django_celery_beat',
+    'django_celery_results',
 ]
 
 MIDDLEWARE = [
@@ -126,6 +128,14 @@ REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'django.core.paginator.Paginator',
     'PAGE_SIZE': 10
 }
+
+# celery settings
+CELERY_BROKER_URL = config('CELERY_BROKER_URL', cast=str)
+CELERY_RESULT_BACKEND = config('CELERY_RESULT_BACKEND', cast=str)
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TIMEZONE = TIME_ZONE
 
 try:
     from .local_settings import *
