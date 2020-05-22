@@ -152,6 +152,15 @@ See documentation [here.](./API.md)
 python manage.py test
 ```
 
+### SAMPLE USAGE
+
+```
+cd scrape_scripts
+python linkedin_profile.py
+```
+
+It's scrape the person name, location and linkedin profile url.
+
 ## Assumptions:
 ### [Assumptions](./Assumption.md)
 
