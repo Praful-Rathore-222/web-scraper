@@ -1,3 +1,6 @@
+from __future__ import absolute_import, unicode_literals
+from celery.decorators import task
+
 from .models import Employee
 from .serializers import EmployeeSerializer
 from rest_framework.views import APIView
@@ -16,6 +19,16 @@ from .utilities import (login,
                         )
 
 
+@task(name="scraper")
+def scraper(username, password):
+    driver = webdriver.Chrome('linkedin_scraper/chromedriver_linux64/chromedriver')
+    login(driver, username, password)
+    driver.get('https://www.linkedin.com/company/mambu/people/')
+    scroll_to_bottom(driver=driver)
+    get_profiles_link_and_scrap_profiles(driver)
+    driver.quit()
+
+
 class RefreshEmployeeList(APIView):
     """
     fetch employees from Linkedin, and upsert them.
@@ -23,7 +36,8 @@ class RefreshEmployeeList(APIView):
     permission_classes = [IsAdminUser]
 
     def get(self, request, format=None):
-        driver = webdriver.Chrome('linkedin_scraper/chromedriver_linux64/chromedriver')
+        print('get called')
+
 
         # Loading of configurations
         config = ConfigParser()
@@ -33,16 +47,13 @@ class RefreshEmployeeList(APIView):
         username = config.get('linkedin', 'username')
         password = config.get('linkedin', 'password')
         if username and password:
-            login(driver, username, password)
-            driver.get('https://www.linkedin.com/company/mambu/people/')
-            scroll_to_bottom(driver=driver)
-            get_profiles_link_and_scrap_profiles(driver)
+            print('calling scraper')
+            scraper.delay(username=username, password=password)
+            print('scraper exited')
         else:
             print('Enter the cridentials in the config file')
 
-        driver.quit()
-
-        return Response({'success': 'Profiles are successfully scraped.'}, status=status.HTTP_200_OK)
+        return Response({'success': 'Profiles are being scraped.'}, status=status.HTTP_200_OK)
 
 
 class EmployeeList(APIView):
