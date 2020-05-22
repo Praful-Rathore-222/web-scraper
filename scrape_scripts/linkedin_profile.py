@@ -18,7 +18,6 @@ config.read('../config.ini')
 username = config.get('linkedin', 'username')
 password = config.get('linkedin', 'password')
 
-
 class Scraper(object):
     driver = None
 
@@ -60,6 +59,7 @@ class Person(Scraper):
     name = None
     linkedin_url = None
     location = None
+    profile_title= None
 
     def __init__(self, linkedin_url=None, name=None, driver=None, get=True, scrape=True):
         self.linkedin_url = linkedin_url
@@ -90,6 +90,8 @@ class Person(Scraper):
         root = driver.find_element_by_class_name(self.__TOP_CARD)
         self.name = root.find_elements_by_xpath("//section/div/div/div/*/li")[0].text.strip()
 
+        self.profile_title = root.find_elements_by_xpath("//section/div/div/div/h2")[0].text.strip()
+  
         # get location
         location = driver.find_element_by_class_name(f'{self.__TOP_CARD}--list-bullet')
         location = location.find_element_by_tag_name('li').text
@@ -114,7 +116,8 @@ class Person(Scraper):
             driver.close()
 
     def __repr__(self):
-        return "{name} \n {location} \n {linkedin_url}".format(name = self.name, location=self.location, linkedin_url=self.linkedin_url)
+        return "{name} \n{profile_title} \n{location} \n{linkedin_url}".format(name = self.name, 
+            profile_title= self.profile_title, location=self.location, linkedin_url=self.linkedin_url)
 
 
 # Login on linkedin
