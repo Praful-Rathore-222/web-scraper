@@ -132,6 +132,10 @@ python manage.py runserver
 
 ` The site will be available at 127.0.0.1:8000. `
 
+Now, open a new terminal window, Run Celery with in your project root where manage.py lives:
+```
+celery -A webscraper worker -l info
+```
 ## Linting:
 
 ```
