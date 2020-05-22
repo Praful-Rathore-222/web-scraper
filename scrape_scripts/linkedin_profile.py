@@ -7,16 +7,6 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-from configparser import ConfigParser
-
-
-driver = webdriver.Chrome('../linkedin_scraper/chromedriver_linux64/chromedriver')
-
-# Loading of configurations
-config = ConfigParser()
-config.read('../config.ini')
-username = config.get('linkedin', 'username')
-password = config.get('linkedin', 'password')
 
 class Scraper(object):
     driver = None
@@ -66,7 +56,15 @@ class Person(Scraper):
         self.name = name
 
         if driver is None:
-            driver = webdriver.Chrome('../linkedin_scraper/chromedriver_linux64/chromedriver')
+            try:
+                if os.getenv("CHROMEDRIVER") == None:
+                    driver_path = os.path.join(os.path.dirname(__file__), 'drivers/chromedriver')
+                else:
+                    driver_path = os.getenv("CHROMEDRIVER")
+
+                driver = webdriver.Chrome(driver_path)
+            except:
+                driver = webdriver.Chrome()
 
         if get:
             driver.get(linkedin_url)
@@ -121,7 +119,7 @@ class Person(Scraper):
 
 
 # Login on linkedin
-def login(driver, email=None, password=None):
+def login(driver, email, password):
   driver.get("https://www.linkedin.com/login")
   element = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, "username")))
 
@@ -131,9 +129,3 @@ def login(driver, email=None, password=None):
   password_elem = driver.find_element_by_id("password")
   password_elem.send_keys(password)
   driver.find_element_by_tag_name("button").click()
-
-
-
-login(driver, username, password)
-person = Person("https://www.linkedin.com/in/andre-iguodala-65b48ab5", driver=driver)
-print(person)
