@@ -55,16 +55,16 @@ def scrap_profiles(driver):
         name = clean_name(name)
         job_title = sel.xpath('//h2/text()').getall()[1]
         ln_url = driver.current_url
-    except:
-        print('failed')
 
-    # upsert to Employee Model
-    name = name[1:]
-    Employee.objects.get_or_create(
+        # upsert to Employee Model
+        name = name[1:]
+        Employee.objects.get_or_create(
         name=name.strip(),
         designation=job_title.strip(),
         company='Mambu')
-    time.sleep(5)
+        time.sleep(5)
+    except:
+        print('failed to scrape profile')
 
 def get_profile(profile, driver):
     """
