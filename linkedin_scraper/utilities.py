@@ -46,9 +46,8 @@ def scrap_profiles(driver):
         ln_url = driver.current_url
 
         # upsert to Employee Model
-        name = name[1:]
         Employee.objects.get_or_create(
-        name=name.strip(),
+        name=name,
         designation=job_title.strip(),
         company='Mambu')
         time.sleep(5)
